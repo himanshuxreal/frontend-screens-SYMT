@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYTU - Verify OTP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="#" class="auth-logo text-gradient">SYTU</a>
+                <p class="auth-subtitle">We've sent a verification code to your email. Please enter it below.</p>
+                <p id="mock-otp-display" style="color: var(--primary); font-weight: bold; margin-top: 10px; font-size: 0.9rem;"></p>
+            </div>
+            
+            <form id="otp-form">
+                <div class="otp-inputs">
+                    <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" required autocomplete="off">
+                </div>
+
+                <div id="otp-error" style="color: #ef4444; font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
+
+                <button type="submit" class="btn btn-primary">Verify OTP</button>
+            </form>
+            
+            <div class="auth-footer">
+                Didn't receive the code? <a href="#" id="resend-otp-btn">Resend OTP</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
