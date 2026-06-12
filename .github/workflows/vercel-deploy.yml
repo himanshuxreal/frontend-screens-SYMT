@@ -19,7 +19,7 @@ jobs:
       - name: Check file structure
         run: |
           echo "Verifying essential application files..."
-          if [ -f "index.html" ] || [ -f "login.html" ]; then
+          if [ -f "index.html" ]; then
             echo "HTML files found."
           else
             echo "Error: Core HTML files missing!"

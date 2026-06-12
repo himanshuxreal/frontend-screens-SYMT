@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 clearSession();
-                window.location.href = 'login.html';
+                window.location.href = 'index.html';
             });
         }
     };
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!context) {
             // No context, redirect to login
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
             return;
         }
 
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Ensure user passed OTP verification for forgot password
         if (!resetEmail || context !== 'forgot') {
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
             return;
         }
         
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sessionStorage.removeItem('otp');
                 sessionStorage.removeItem('otpContext');
                 alert('Password reset successful! You can now log in.');
-                window.location.href = 'login.html';
+                window.location.href = 'index.html';
             } else {
                 errorDiv.textContent = 'Error resetting password. Account not found.';
                 errorDiv.style.display = 'block';
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('profile.html') || document.querySelector('.profile-container')) {
         const user = getCurrentUser();
         if (!user) {
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
             return;
         }
 
@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.edit-profile-layout')) {
         const user = getCurrentUser();
         if (!user) {
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
             return;
         }
 

@@ -45,7 +45,7 @@ Since SYTU is a pure frontend application, no backend server or build steps (lik
    Download the folder containing the project files to your local machine.
 
 2. **Run the Application:**
-   Simply double-click the `login.html` (or `signup.html`) file to open it directly in any modern web browser (Chrome, Firefox, Safari, Edge).
+   Simply double-click the `index.html` (or `signup.html`) file to open it directly in any modern web browser (Chrome, Firefox, Safari, Edge).
    
    *(Optional)* If you prefer, you can serve it via a simple local server like VS Code's "Live Server" extension for a better development experience.
 
@@ -58,7 +58,7 @@ Since SYTU is a pure frontend application, no backend server or build steps (lik
 ## 📂 File Structure
 
 ```text
-├── login.html             # User login page
+├── index.html             # User login page
 ├── signup.html            # New user registration
 ├── otp.html               # OTP verification screen
 ├── forgot-password.html   # Password recovery initiation
