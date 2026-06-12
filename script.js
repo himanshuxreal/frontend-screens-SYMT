@@ -1,3 +1,15 @@
+const DEFAULT_AVATAR = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a1a1aa'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E";
+
+document.addEventListener('error', function(e) {
+    const target = e.target;
+    if (target && target.tagName && target.tagName.toLowerCase() === 'img') {
+        if (!target.src.includes('data:image')) {
+            target.src = DEFAULT_AVATAR;
+            target.onerror = null;
+        }
+    }
+}, true);
+
 document.addEventListener('DOMContentLoaded', () => {
     // Local storage utilities
     const getUsers = () => JSON.parse(localStorage.getItem('users')) || [];
@@ -292,14 +304,13 @@ document.addEventListener('DOMContentLoaded', () => {
         setElText('profile-location', user.location || 'Not specified');
         setElText('profile-bio', user.bio || 'No bio available.');
         
-        const defaultAvatar = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a1a1aa'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E";
         const defaultCover = "linear-gradient(45deg, rgba(124, 58, 237, 0.6), rgba(34, 211, 238, 0.4))";
 
         const navAvatar = document.getElementById('nav-avatar');
-        if (navAvatar) navAvatar.src = user.avatar || defaultAvatar;
+        if (navAvatar) navAvatar.src = user.avatar || DEFAULT_AVATAR;
 
         const mainAvatar = document.getElementById('main-profile-avatar');
-        if (mainAvatar) mainAvatar.src = user.avatar || defaultAvatar;
+        if (mainAvatar) mainAvatar.src = user.avatar || DEFAULT_AVATAR;
 
         const mainCover = document.getElementById('main-profile-cover');
         if (mainCover) mainCover.style.backgroundImage = user.cover ? `url(${user.cover})` : defaultCover;
@@ -420,14 +431,13 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('edit-location').value = user.location || '';
             document.getElementById('edit-bio').value = user.bio || '';
             
-            const defaultAvatar = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a1a1aa'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E";
             const defaultCover = "linear-gradient(45deg, rgba(124, 58, 237, 0.6), rgba(34, 211, 238, 0.4))";
             
             const editNavAvatar = document.getElementById('edit-nav-avatar');
-            if (editNavAvatar) editNavAvatar.src = user.avatar || defaultAvatar;
+            if (editNavAvatar) editNavAvatar.src = user.avatar || DEFAULT_AVATAR;
 
             const avatarPreview = document.getElementById('avatar-preview');
-            if (avatarPreview) avatarPreview.src = user.avatar || defaultAvatar;
+            if (avatarPreview) avatarPreview.src = user.avatar || DEFAULT_AVATAR;
 
             const coverPreview = document.getElementById('cover-preview');
             if (coverPreview) coverPreview.style.backgroundImage = user.cover ? `url(${user.cover})` : defaultCover;

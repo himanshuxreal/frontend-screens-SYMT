@@ -32,17 +32,35 @@ body {
 }
 
 /* Background effects */
-body::before {
+body::before, body::after {
     content: '';
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 30%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
     z-index: -1;
-    pointer-events: none;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: floatOrb 10s infinite alternate ease-in-out;
+}
+
+body::before {
+    background: var(--primary);
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    background: var(--accent);
+    bottom: -100px;
+    right: -100px;
+    animation-duration: 12s;
+    animation-delay: -5s;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(100px, 100px) scale(1.5); }
 }
 
 /* Typography & Utils */
@@ -228,6 +246,17 @@ select.form-input option:hover {
     border-color: var(--accent);
     outline: none;
     box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+}
+
+.social-buttons-container {
+    display: flex;
+    gap: 1rem;
+}
+
+@media (max-width: 480px) {
+    .social-buttons-container {
+        flex-direction: column;
+    }
 }
 
 /* App Layout (Profile etc) */
