@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('show');
+            mobileMenuBtn.classList.toggle('active');
         });
     }
 

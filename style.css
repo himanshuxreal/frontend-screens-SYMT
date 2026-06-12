@@ -422,16 +422,29 @@ a:hover {
     align-items: center;
 }
 
+.profile-cover {
+    height: 120px;
+    width: calc(100% + 3rem);
+    margin: -1.5rem -1.5rem 0 -1.5rem;
+    background: linear-gradient(45deg, rgba(124, 58, 237, 0.6), rgba(34, 211, 238, 0.4));
+    background-size: cover;
+    background-position: center;
+    border-radius: 11px 11px 0 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+
 .profile-avatar-wrapper {
     margin-bottom: 1rem;
     position: relative;
+    margin-top: -60px;
 }
 
 .profile-avatar {
     width: 96px;
     height: 96px;
     border-radius: 50%;
-    border: 2px solid var(--glass-border);
+    border: 4px solid var(--bg-color);
+    background: var(--bg-color);
     object-fit: cover;
 }
 
@@ -480,6 +493,7 @@ a:hover {
 .profile-meta-vertical {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.75rem;
     width: 100%;
     font-size: 0.85rem;
@@ -497,6 +511,7 @@ a:hover {
 
 .profile-actions-vertical {
     display: flex;
+    justify-content: center;
     gap: 0.75rem;
     width: 100%;
 }
@@ -531,6 +546,7 @@ a:hover {
 .social-links-compact {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
     width: 100%;
 }
@@ -650,6 +666,7 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .avatar-upload img {
@@ -720,6 +737,11 @@ a:hover {
 }
 
 /* Mobile Responsiveness */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden !important;
+}
+
 @media (max-width: 900px) {
     .profile-layout {
         grid-template-columns: 1fr;
@@ -729,6 +751,12 @@ a:hover {
         grid-template-columns: 1fr;
     }
     
+    /* Prevent Flex/Grid from forcing containers off-screen */
+    .profile-sidebar, .profile-main, .edit-sidebar, .edit-main-card {
+        min-width: 0;
+        max-width: 100%;
+    }
+    
     .edit-sidebar .premium-card {
         display: flex;
         flex-direction: row;
@@ -736,6 +764,7 @@ a:hover {
         padding: 0.5rem;
         gap: 0.5rem;
         border-radius: 8px;
+        width: 100%;
     }
     
     /* Hide scrollbar for mobile tabs */
@@ -752,15 +781,42 @@ a:hover {
         margin-bottom: 0;
         padding: 0.5rem 1rem;
     }
+    
+    .logout-tab {
+        margin-top: 0;
+    }
 }
 
 @media (max-width: 768px) {
     .hamburger {
         display: block;
+        z-index: 101;
+    }
+    
+    .hamburger svg line {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+        transform-box: fill-box;
+    }
+    
+    .hamburger.active svg line:nth-child(1) {
+        opacity: 0;
+    }
+    
+    .hamburger.active svg line:nth-child(2) {
+        transform: translateY(6px) rotate(45deg);
+    }
+    
+    .hamburger.active svg line:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-back-btn {
+        display: flex;
     }
 
     .nav-links {
-        display: none; /* Handled via JS toggle */
+        display: flex;
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -771,14 +827,25 @@ a:hover {
         padding: 1.5rem;
         border-bottom: 1px solid var(--glass-border);
         gap: 1rem;
+        box-sizing: border-box;
+        
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
     }
 
     .nav-links.show {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
     }
 
     .auth-card {
         padding: 2rem 1.5rem;
+        max-width: 100%;
     }
 
     .form-row {
@@ -809,5 +876,28 @@ a:hover {
     }
     .profile-actions-vertical {
         flex-direction: column;
+    }
+    
+    .profile-container, .edit-profile-layout {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+    
+    .premium-card {
+        padding: 1rem;
+    }
+    
+    .edit-main-card {
+        padding: 1.25rem 1rem;
+    }
+    
+    /* Cover adjustment for tighter mobile padding */
+    .profile-cover {
+        width: calc(100% + 2rem);
+        margin: -1rem -1rem 0 -1rem;
+    }
+}
+ width: calc(100% + 2rem);
+        margin: -1rem -1rem 0 -1rem;
     }
 }
