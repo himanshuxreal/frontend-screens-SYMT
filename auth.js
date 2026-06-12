@@ -5,10 +5,11 @@ import {
     GoogleAuthProvider, 
     GithubAuthProvider 
 } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+import { FIREBASE_API_KEY } from "./config.js";
 
 // Firebase Configuration provided by the user
 const firebaseConfig = {
-  apiKey: "AIzaSyDvs62tSdUqrysq3c88HWnun7zOt_D0aHs",
+  apiKey: FIREBASE_API_KEY,
   authDomain: "symt-1d32d.firebaseapp.com",
   projectId: "symt-1d32d",
   storageBucket: "symt-1d32d.firebasestorage.app",
