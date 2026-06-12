@@ -15,7 +15,7 @@
             </div>
             
             <form id="signup-form">
-                <div style="display: flex; gap: 1rem;">
+                <div class="name-fields">
                     <div class="form-group" style="flex: 1;">
                         <label class="form-label">First Name</label>
                         <input type="text" id="signup-fname" class="form-input" placeholder=" Enter first name ..." required>
@@ -43,14 +43,31 @@
 
                 <div class="form-group">
                     <label class="form-label">I am a</label>
-                    <select id="signup-role" class="form-input" required style="appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23A1A1AA%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
-                        <option value="" disabled selected>Select your role</option>
-                        <option value="student">Student</option>
-                        <option value="developer">Developer</option>
-                        <option value="designer">Designer</option>
-                        <option value="freelancer">Freelancer</option>
-                        <option value="professional">Professional</option>
-                    </select>
+                    <div class="custom-select-wrapper">
+                        <select id="signup-role" required style="display: none;">
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="developer">Developer</option>
+                            <option value="designer">Designer</option>
+                            <option value="freelancer">Freelancer</option>
+                            <option value="professional">Professional</option>
+                        </select>
+                        <div class="custom-select form-input">
+                            <div class="custom-select-trigger">
+                                <span>Select your role</span>
+                                <div class="arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>
+                            <div class="custom-options">
+                                <span class="custom-option" data-value="student">Student</span>
+                                <span class="custom-option" data-value="developer">Developer</span>
+                                <span class="custom-option" data-value="designer">Designer</span>
+                                <span class="custom-option" data-value="freelancer">Freelancer</span>
+                                <span class="custom-option" data-value="professional">Professional</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">

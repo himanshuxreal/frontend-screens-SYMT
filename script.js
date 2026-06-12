@@ -42,6 +42,49 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLogout('logout-btn');
     setupLogout('edit-logout-btn');
 
+    // Custom Select Dropdowns
+    document.querySelectorAll('.custom-select-wrapper').forEach(wrapper => {
+        const select = wrapper.querySelector('.custom-select');
+        const trigger = wrapper.querySelector('.custom-select-trigger span');
+        const hiddenSelect = wrapper.querySelector('select');
+        const options = wrapper.querySelectorAll('.custom-option');
+
+        select.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('open');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Remove selected class from all
+                options.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+
+                // Update text
+                trigger.textContent = this.textContent;
+                trigger.style.color = 'var(--text-main)';
+                
+                // Update hidden select
+                hiddenSelect.value = this.dataset.value;
+                hiddenSelect.dispatchEvent(new Event('change'));
+
+                // Close dropdown
+                select.classList.remove('open');
+            });
+        });
+    });
+
+    // Close all dropdowns when clicking outside
+    window.addEventListener('click', function(e) {
+        if (!e.target.closest('.custom-select')) {
+            document.querySelectorAll('.custom-select').forEach(select => {
+                select.classList.remove('open');
+            });
+        }
+    });
+
     // Page: Signup
     const signupForm = document.getElementById('signup-form');
     if (signupForm) {
