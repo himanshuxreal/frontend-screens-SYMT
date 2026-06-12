@@ -9,107 +9,90 @@
 <body>
     <nav class="navbar">
         <a href="#" class="nav-brand text-gradient">SYTU</a>
-        <div class="nav-links">
+        <div class="hamburger" id="mobile-menu-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </div>
+        <div class="nav-links" id="nav-links">
             <a href="#" class="nav-link">Feed</a>
             <a href="#" class="nav-link">Network</a>
             <a href="#" class="nav-link">Jobs</a>
-            <a href="edit-profile.html">
+            <a href="edit-profile.html" class="nav-profile-link">
                 <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a1a1aa'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="Profile" class="nav-profile" id="nav-avatar">
             </a>
-            <a href="#" id="logout-btn" class="nav-link" style="color: #ef4444; margin-left: 1rem;">Logout</a>
+            <a href="#" id="logout-btn" class="nav-link danger-link" style="color: #ef4444;">Logout</a>
         </div>
     </nav>
 
     <div class="profile-container">
-        <div class="profile-header">
-            <div class="profile-cover" id="main-profile-cover"></div>
-            
-            <div class="profile-info-section">
-                <div class="profile-avatar-wrapper">
-                    <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a1a1aa'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="User Avatar" class="profile-avatar" id="main-profile-avatar">
-                    <div class="profile-status"></div>
-                </div>
-                
-                <div class="profile-actions">
-                    <a href="edit-profile.html" class="btn btn-secondary" style="width: auto; padding: 0.5rem 1.5rem;">Edit Profile</a>
-                    <button class="btn btn-primary" style="width: auto; padding: 0.5rem 1.5rem;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-                        Share
-                    </button>
-                </div>
-            </div>
+        <div class="profile-layout">
+            <aside class="profile-sidebar">
+                <div class="premium-card text-center">
+                    <div class="profile-avatar-wrapper">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a1a1aa'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="User Avatar" class="profile-avatar" id="main-profile-avatar">
+                        <div class="profile-status"></div>
+                    </div>
+                    
+                    <h1 class="profile-name" id="profile-name">Loading...</h1>
+                    <div class="profile-username" style="justify-content: center;">
+                        <span id="profile-username">@loading</span> 
+                        <span id="profile-role" class="badge">User</span>
+                    </div>
+                    
+                    <p class="profile-bio" id="profile-bio">Loading bio...</p>
+                    
+                    <div class="profile-meta-vertical">
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span id="profile-location">Loading location...</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>Joined Sep 2023</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <span>1.2k Connections</span>
+                        </div>
+                    </div>
 
-            <div class="profile-details">
-                <h1 class="profile-name" id="profile-name">Loading...</h1>
-                <div class="profile-username"><span id="profile-username">@loading</span> <span id="profile-role" style="font-size: 0.8rem; background: rgba(34, 211, 238, 0.1); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 20px; text-transform: capitalize;">User</span></div>
-                
-                <p class="profile-bio" id="profile-bio">
-                    Loading bio...
-                </p>
-                
-                <div class="profile-meta">
-                    <div class="meta-item">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span id="profile-location">Loading location...</span>
-                    </div>
-                    <div class="meta-item">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        Joined Sep 2023
-                    </div>
-                    <div class="meta-item">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        1.2k Connections
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="profile-grid">
-            <!-- Sidebar (Skills & Links) -->
-            <div style="display: flex; flex-direction: column; gap: 2rem;">
-                <div class="glass-card">
-                    <h2 class="card-title">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                        Top Skills
-                    </h2>
-                    <div class="skills-container" id="profile-skills">
-                        <!-- dynamic skills will be loaded here -->
+                    <div class="profile-actions-vertical">
+                        <a href="edit-profile.html" class="btn btn-secondary btn-sm">Edit Profile</a>
+                        <button class="btn btn-primary btn-sm">Share</button>
                     </div>
                 </div>
 
-                <div class="glass-card">
-                    <h2 class="card-title">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                        Social Links
-                    </h2>
-                    <div class="social-links">
-                        <a href="#" id="profile-github" class="social-link" target="_blank">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                <div class="premium-card">
+                    <h3 class="section-title">Skills</h3>
+                    <div class="skills-container" id="profile-skills"></div>
+                </div>
+
+                <div class="premium-card">
+                    <h3 class="section-title">Social Links</h3>
+                    <div class="social-links-compact">
+                        <a href="#" id="profile-github" class="social-link-compact" target="_blank" style="display: none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
                             <span id="profile-github-text">github.com/</span>
                         </a>
-                        <a href="#" id="profile-linkedin" class="social-link" target="_blank">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <a href="#" id="profile-linkedin" class="social-link-compact" target="_blank" style="display: none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                             <span id="profile-linkedin-text">linkedin.com/in/</span>
                         </a>
-                        <a href="#" id="profile-website" class="social-link" target="_blank">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <a href="#" id="profile-website" class="social-link-compact" target="_blank" style="display: none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                             <span id="profile-website-text">website</span>
                         </a>
                     </div>
                 </div>
-            </div>
+            </aside>
 
-            <!-- Main Content (Projects) -->
-            <div class="glass-card" style="padding: 2rem;">
-                <h2 class="card-title" style="margin-bottom: 2rem;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                    Project Showcase
-                </h2>
-                
-                <div class="projects-grid" id="profile-projects">
-                    <!-- dynamic projects will be loaded here -->
+            <main class="profile-main">
+                <div class="section-header">
+                    <h2>Project Showcase</h2>
                 </div>
-            </div>
+                <div class="projects-grid" id="profile-projects">
+                    <!-- projects loaded dynamically -->
+                </div>
+            </main>
         </div>
     </div>
 

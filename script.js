@@ -28,6 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.opacity = '1';
     });
 
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    }
+
     // Logout
     const setupLogout = (id) => {
         const btn = document.getElementById(id);
